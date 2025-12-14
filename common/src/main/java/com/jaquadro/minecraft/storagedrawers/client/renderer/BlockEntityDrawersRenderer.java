@@ -19,7 +19,6 @@ import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.renderer.MultiBufferSource;
-import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.SubmitNodeCollector;
 import net.minecraft.client.renderer.block.model.BakedQuad;
 import net.minecraft.client.renderer.block.model.BlockModelPart;
@@ -30,6 +29,7 @@ import net.minecraft.client.renderer.entity.ItemRenderer;
 import net.minecraft.client.renderer.feature.ModelFeatureRenderer;
 import net.minecraft.client.renderer.item.ItemModelResolver;
 import net.minecraft.client.renderer.item.ItemStackRenderState;
+import net.minecraft.client.renderer.rendertype.RenderTypes;
 import net.minecraft.client.renderer.state.CameraRenderState;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.client.renderer.texture.SpriteContents;
@@ -40,7 +40,7 @@ import net.minecraft.client.resources.model.Material;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Style;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.util.ARGB;
 import net.minecraft.util.FormattedCharSequence;
 import net.minecraft.util.RandomSource;
@@ -262,18 +262,18 @@ public class BlockEntityDrawersRenderer implements BlockEntityRenderer<BlockEnti
         alignRendering(poseStack, side);
 
         QuadBuilder quadBuilder = new QuadBuilder(renderState);
-        submitNodeCollector.submitCustomGeometry(poseStack, RenderType.solid(), quadBuilder);
+        submitNodeCollector.submitCustomGeometry(poseStack, RenderTypes.solidMovingBlock(), quadBuilder);
 
         poseStack.popPose();
     }
 
     static class QuadBuilder implements SubmitNodeCollector.CustomGeometryRenderer
     {
-        public static final ResourceLocation TEXTURE_IND_1 = ModConstants.loc("block/indicator/indicator_1_on");
-        public static final ResourceLocation TEXTURE_IND_2 = ModConstants.loc("block/indicator/indicator_2_on");
-        public static final ResourceLocation TEXTURE_IND_4 = ModConstants.loc("block/indicator/indicator_4_on");
-        public static final ResourceLocation TEXTURE_IND_COMP_3 = ModConstants.loc("block/indicator/indicator_comp_on");
-        public static final ResourceLocation TEXTURE_IND_COMP_2 = ModConstants.loc("block/indicator/indicator_comp2_on");
+        public static final Identifier TEXTURE_IND_1 = ModConstants.loc("block/indicator/indicator_1_on");
+        public static final Identifier TEXTURE_IND_2 = ModConstants.loc("block/indicator/indicator_2_on");
+        public static final Identifier TEXTURE_IND_4 = ModConstants.loc("block/indicator/indicator_4_on");
+        public static final Identifier TEXTURE_IND_COMP_3 = ModConstants.loc("block/indicator/indicator_comp_on");
+        public static final Identifier TEXTURE_IND_COMP_2 = ModConstants.loc("block/indicator/indicator_comp2_on");
 
         public static final Material MAT_IND_1 = new Material(TextureAtlas.LOCATION_BLOCKS, TEXTURE_IND_1);
         public static final Material MAT_IND_2 = new Material(TextureAtlas.LOCATION_BLOCKS, TEXTURE_IND_2);

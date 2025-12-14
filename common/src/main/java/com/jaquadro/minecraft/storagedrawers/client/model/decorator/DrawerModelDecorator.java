@@ -9,7 +9,6 @@ import com.jaquadro.minecraft.storagedrawers.block.BlockDrawers;
 import com.jaquadro.minecraft.storagedrawers.block.BlockStandardDrawers;
 import com.jaquadro.minecraft.storagedrawers.client.model.DrawerModelStore;
 import com.jaquadro.minecraft.storagedrawers.client.model.context.DrawerModelContext;
-import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.Sheets;
 import net.minecraft.client.renderer.block.model.BlockStateModel;
 import net.minecraft.core.Direction;
